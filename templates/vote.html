@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <div class="jumbotron text-center">
+        <h2>Online Election Voting with Python and Fauna</h2>
+        <p>Cast Your Votes for <strong>'{{ election.title }}'</strong> Election</p>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <p class="text-{{ category }}">{{ message }}</p>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <form method="POST">
+        <div class="form-group">
+          <label for="voting-options">Voting Options</label>
+          <select class="form-control" id="voting-options" name="vote" required>
+            {% for i in election.voting_options %}
+            <option>{{ i }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Cast Vote</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

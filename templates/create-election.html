@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <div class="jumbotron text-center">
+        <h2>Online Election Voting with Python and Fauna</h2>
+        <p>Create a New Election</p>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <form method="POST">
+        <div class="form-group">
+          <label for="title">Election Title</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="Enter Election Title" required>
+        </div>
+        <div class="form-group">
+          <label for="voting-options">Voting Options</label>
+          <textarea class="form-control" rows="5" id="voting-options" name="voting-options" placeholder="Enter the next voting option on a new line" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Election</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
