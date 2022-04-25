@@ -50,7 +50,7 @@ def register():
             }))
             flash(
                 "You have successfully created your account, you can now create online elections!", "success")
-        return redirect(url_for("register"))
+        return redirect(url_for("login"))
 
     return render_template("register.html")
 
